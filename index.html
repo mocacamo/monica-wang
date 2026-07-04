@@ -230,16 +230,18 @@
   }
   .cite strong { color: var(--ink); }
 
-  /* ---------- 03 VALUES ---------- */
+/* ---------- 03 VALUES ---------- */
   .values h2 {
-    /* 調整 clamp 參數，讓手機版(最小值1.25rem)到桌機版(最大值2.1rem)的縮放更流暢 */
-    font-size: clamp(1.25rem, 4vw, 2.1rem); 
+    font-size: clamp(1.25rem, 4vw, 2.1rem);
     color: var(--navy);
     font-weight: 700;
-    /* max-width 改為 26ch，在桌機會剛好在「，」後面自然換行，手機上則會依螢幕寬度滿版排列 */
-    max-width: 26ch; 
     line-height: 1.6;
-    word-break: keep-all; /* 確保中文字與標點符號不會被奇怪地拆開 */
+    
+    /* 改用 flex 排版，讓兩句中文在桌機並排，在手機裝不下時自動溫柔地斷行 */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 0.5rem; /* 兩句話中間的間距 */
+    max-width: 100%; /* 確保絕對不會超出螢幕 */
   }
   .values .accent { color: var(--teal); }
 
