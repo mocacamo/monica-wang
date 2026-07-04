@@ -11,7 +11,7 @@
   }
 
   :root {
-    --linkedin-blue: #0A66C2; /* 取代原本的 --teal: #0F9D8A; */
+    --teal: #0F9D8A; 
     --navy: #0B3C5D;
     --ink: #16232b;
     --muted: #5b6b73;
@@ -232,11 +232,14 @@
 
   /* ---------- 03 VALUES ---------- */
   .values h2 {
-    font-size: clamp(1.4rem, 3vw, 1.9rem);
+    /* 調整 clamp 參數，讓手機版(最小值1.25rem)到桌機版(最大值2.1rem)的縮放更流暢 */
+    font-size: clamp(1.25rem, 4vw, 2.1rem); 
     color: var(--navy);
     font-weight: 700;
-    max-width: 20ch;
-    line-height: 1.5;
+    /* max-width 改為 26ch，在桌機會剛好在「，」後面自然換行，手機上則會依螢幕寬度滿版排列 */
+    max-width: 26ch; 
+    line-height: 1.6;
+    word-break: keep-all; /* 確保中文字與標點符號不會被奇怪地拆開 */
   }
   .values .accent { color: var(--teal); }
 
@@ -375,7 +378,7 @@
 <section id="s03" class="values">
   <div class="wrap">
     <span class="idx">03 — Mo's 價值觀</span>
-    <h2>我不單純只關注<span class="accent">營收與營運成本</span>，<br>我更在乎<span class="accent">品牌信任</span>與<span class="accent">組織發展</span>。</h2>
+    <h2>我不單純只關注<span class="accent">營收與營運成本</span>，我更在乎<span class="accent">品牌信任</span>與<span class="accent">組織發展</span>。</h2>
   </div>
 </section>
 
